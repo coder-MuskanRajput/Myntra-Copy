@@ -1,0 +1,295 @@
+<link rel="stylesheet" href="/stylesheets/product.css">
+
+<%- include('partials/header')%>
+<%- include('partials/nav')%>
+<main>
+    <% let isUser = [""]%>
+    <% if( user?.wishlists ){ isUser = user.wishlists  } %>
+   
+    <% let isAdd = [""]%>
+    <% if( user?.addCart ){ isAdd = user.addCart } %>
+   
+    
+    <div class="prdctTopDiv">
+        <span class="goToCategory normalTXT"><a class="normalTXT" href="/">Home</a> / <a class="normalTXT" href="/<%= product.mainCategory%>"><%= product.mainCategory%></a> / <a class="normalTXT"  href="/<%= product.category%>"><%= product.category%></a> / <a  class="normalTXT"href="<%=product.subCategory%>"><%=product.subCategory%></a> / <span class="prodcutNameCate bold"><%=product.title%></span> > <a class="normalTXT bold" href="brand/<%= product.brand %>">More product by <%= product.brand %></a></span>
+    </div>
+    <div class="prdctBottomDiv">
+        <div class="allImagesDiv">
+           <% product.images.forEach((img)=>{ %>
+            <img src="<%= img %>" alt="<%= img %>" class="productImage">
+           <% }) %>
+        </div>
+        <div class="prctDetailsDiv">
+            <h2 class="brandName"><%= product.brand %></h2>
+            <h3 class="prdctTitle"><%= product.title %></h3>
+            <% let numb = product.ratingCount.toString();%>
+            <% let shortNumb;%>
+            <%if(numb.length <= 3){%>
+            <%    shortNumb = numb;%>
+            <%} else if (numb.length >= 3 && numb.length <= 6) {%>
+            <%    let checkD = numb/1000%>
+            <%    let split = (checkD.toString()).split('.') %>
+            <%    console.log(split)%>
+            <%    let scSplit = split[1].split('')%>
+            <%    shortNumb = split[0] + "." + scSplit[0] + 'k' %>
+            <%}%>
+            <div class="ratingDiv"><span class="normalTXT bold"><%= product.rating %> </span> <i class="ri-star-fill starRating"></i> <span class="normalTXT"> | </span> <span class="normalTXT prdctTitle"><%= shortNumb %> Ratings</span></div>
+            <hr class="hrDDD">
+            <div class="MRPDiv">
+                <% if(discount === 0){ %>
+                    <span class="mrpShow">₹ <%= product.price%></span>
+                <% } else { %>
+                   <% let discountPrice = (product.price * discount)/100 %>
+                   <span class="mrpShow">₹ <%= discountPrice %></span> <span class="orignalPrice">MRP<span class="strike"><%= product.price%></span></span><span class="discountShow"> (<%= discount %>% OFF)</span>
+              <%  } %>
+            </div>
+            <span class="allTax normalTXT bold">inclusive of all taxes</span>
+            <span class="sizeChartTXT bold">SELECT SIZE</span>
+            <div class="sizeChartDiv">
+              <% product.size.forEach((sizz)=>{ %>
+                <span class="size"><%= sizz %></span>
+              <%})%>
+            </div>
+
+            <div class="buttons">
+                <button  class="addCard">
+                    <%if(isAdd.includes(product._id)){%>
+
+                       <a class="addCard" href="/cart"> <i class="ri-arrow-right-line"></i> Go to Bag </a>
+                    <%}else{%>
+                       <a class="addCard" href="/addProduct/productList/<%= product._id%>"> <i class="ri-shopping-bag-line"></i>  Add to Cart </a>
+                        <%}%>
+                
+                </button>
+
+                <button onclick= 'handleLike("<%=product._id %>")' class="addWishlist">
+                    <%if(isUser.includes(product._id)){%>
+
+                    <i id="heart" class="makeRed ri-heart-fill"></i>  
+                    <%}else{%>
+                        <i id="heart" class="ri-heart-fill"></i>  
+
+                        <%}%>
+
+                    Wishlist</button>
+            </div>
+          <br>
+            <hr>
+          <br>
+           <div class="discription">
+               <h3 class="sizeChartTXT bold">PRODUCT DETAILS</h3>
+               <br>
+
+               <% for(let i =1 ; i<=5 ; i++){ %>
+
+                <p class="desc"><%= product.productDetails %></p>
+                   <br>
+               <%} %>
+               
+          </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footPart1">
+            <ul>
+                <a class="heading" href="">ONLINE SHOPPING</a>
+                <br>
+                <a href="">Men</a>
+                <a href="">Women</a>
+                <a href="">Kids</a>
+                <a href="">Home & Living</a>
+                <a href="">Beauty</a>
+                <a href="">Gift Cards </a>
+                <a href="">Myntra Insider</a>
+            </ul>
+            <br>
+            <ul>
+                <p class="heading">USEFUL LINKS</p>
+                <br>
+                <a href="">Blog</a>
+                <a href="">Careers</a>
+                <a href="">Site Map</a>
+                <a href="">Corporate Information</a>
+                <a href="">Whitehat</a>
+            </ul>
+        </div>
+        <div class="footPart2">
+            <ul>
+                <p class="heading">CUSTOMER POLICIES</p>
+                <br>
+                <a href="">Contact Us </a>
+                <a href="">F&Q</a>
+                <a href="">T&C</a>
+                <a href="">Terms Of Use</a>
+                <a href="">Track Orders</a>
+                <a href="">Shipping</a>
+                <a href="">Cancelling</a>
+                <a href="">Returns</a>
+                <a href="">Privacy policy </a>
+                <a href="">Grievance Officer</a>
+            </ul>
+        </div>
+        <div class="footPart3">
+            <p class="heading">EXPERIENCE MYNTRA APP ON MOBILE</p>
+            <br>
+            <div class="img">
+                <img class="app"
+                    src="https://constant.myntassets.com/web/assets/img/80cc455a-92d2-4b5c-a038-7da0d92af33f1539674178924-google_play.png"
+                    alt="">
+                <img class="app"
+                    src="https://constant.myntassets.com/web/assets/img/bc5e11ad-0250-420a-ac71-115a57ca35d51539674178941-apple_store.png"
+                    alt="">
+            </div>
+            <br>
+            <p class="heading">KEEP IN TOUCH</p>
+            <br>
+            <div class="social">
+                <a href=""><img
+                        src="https://constant.myntassets.com/web/assets/img/d2bec182-bef5-4fab-ade0-034d21ec82e31574604275433-fb.png"
+                        alt=""></a>
+                <a href=""><img
+                        src="https://constant.myntassets.com/web/assets/img/f10bc513-c5a4-490c-9a9c-eb7a3cc8252b1574604275383-twitter.png"
+                        alt=""></a>
+                <a href=""><img class="youtube"
+                        src="https://constant.myntassets.com/web/assets/img/a7e3c86e-566a-44a6-a733-179389dd87111574604275355-yt.png"
+                        alt=""></a>
+                <a href=""><img
+                        src="https://constant.myntassets.com/web/assets/img/b4fcca19-5fc1-4199-93ca-4cae3210ef7f1574604275408-insta.png"
+                        alt=""></a>
+            </div>
+        </div>
+        <div class="footPart4">
+            <div class="footPArt4-1">
+                <img src="https://constant.myntassets.com/web/assets/img/6c3306ca-1efa-4a27-8769-3b69d16948741574602902452-original.png"
+                    alt="">
+                <p> <strong>100% ORIGINAL</strong> guarantee for all products at myntra.com</p>
+            </div>
+            <br><br>
+            <div class="footPArt4-2">
+                <img src="https://assets.myntassets.com/assets/images/retaillabs/2023/5/22/becb1b16-86cc-4e78-bdc7-7801c17947831684737106127-Return-Window-image.png"
+                    alt="">
+                <p><strong>Return within 14days</strong> of receiving your order</p>
+            </div>
+
+        </div>
+    </footer>
+    <div class="popularSearch">
+        <p class="heading">POPULAR SEARCH</p>
+        <br>
+        <a href="/sherwani">Sherwani</a> |
+        <a href="/track-pants">Track Pants</a> |
+        <a href="/blazer">Blazers</a> |
+        <a href="/sweater-for-men">Sweater For Men</a> |
+        <a href="/men-wedding-dresses">Men Wedding Dresses</a> |
+        <a href="/kurta-pajama">Kurta Pajama</a> |
+        <a href="/raincoats">Raincoats</a> |
+        <a href="/short">Shorts</a> |
+        <a href="/trousers">Trousers</a> |
+        <a href="/waistcoat">Waistcoats</a> |
+        <a href="/inner-wear">Inner Wear</a> |
+        <a href="/night-wear">Night Wear</a> |
+        <a href="/jeans">Jeans</a> |
+        <a href="/shirts">Shirts</a> |
+        <a href="/jogger-jeans">Jogger Jeans</a> |
+        <a href="/men-suits">Men Suits</a> |
+        <a href="/t-shirt">TShirts</a> |
+        <a href="/sweat-shirts">Sweatshirts</a> |
+        <a href="/jackets-for-men">Jacket For Men</a> |
+        <a href="/track-suits">Tracksuits</a> |
+        <a href="/ribbed-jeans">Ribbed Jeans</a> |
+        <a href="/ethnic-wear">Ethnic Wear</a> |
+        <a href="/hoodies">Hoodies</a> |
+        <a href="/raksha-bandhan-gifts">Raksha Bandhan Gifts</a> |
+        <a href="/watches">Watches</a> |
+        <a href="/shoes">Shoes</a> |
+        <a href="/belts">Belts</a> |
+        <a href="/swim-wear">Swimwear</a> |
+        <a href="/dhotis">Dhotis</a> |
+        <a href="/boxers">Boxers</a> |
+        <a href="/vests">Vests</a> |
+        <a href="/thermals">Thermals</a> |
+        <a href="/socks">Socks</a> |
+        <a href="/shrugs">Shrugs</a> |
+        <a href="/braclets">Braclets</a> |
+        <a href="/rings">Rings</a> |
+        <a href="/sunglasses">Sunglasses</a> |
+        <a href="/headphones">Headphones</a> |
+        <a href="/wallets">Wallets</a> |
+        <a href="/helmets">Helmets</a> |
+        <a href="/caps">Caps</a> |
+        <a href="/mufflers">Mufflers</a> |
+        <a href="/gloves">Gloves</a> |
+        <a href="/ties">Ties</a> |
+        <a href="/cufflinks">Cufflinks</a> |
+        <a href="/men-sandals">Men Sandals</a> |
+        <a href="/floaters">Floaters</a> |
+        <a href="/flip-flops">Flip Flops</a> |
+        <a href="/trunks">Trunks</a> |
+        <a href="/bags">Bags</a> |
+
+    </div>
+    <div class="copyright">
+        <p>In case of any concern,<a href="/contact-us">Contact Us</a> </p>
+        <p>© 2023 www.myntra.com. All rights reserved.</p>
+    </div>
+
+    <hr class="optionHr">
+    <div class="aboutMyntra">
+        <strong>MYNTRA FOR KIDS: IRRESISTIBLY COOL AND COMFORTABLE</strong>
+        <br> <br>
+        <p>It is all fun and frolic when it comes to online shopping for kids at Myntra. We bring you an exhaustive
+            lineup of children’s dresses, accessories and footwear for all occasions. We understand the amount of
+            care which goes into raising a child. Therefore at Myntra, we have taken all efforts to bring you
+            top-notch local and international kids’ brands. You don’t have to step into a kids’ store anymore, or
+            browse through several kids’ online shopping sites. You will find the best price kids’ products of the
+            highest quality right here. You can do all your online shopping for kids at Myntra without any worries.
+        </p>
+        <br> <br>
+        <strong>MYNTRA: THE ONE-STOP KIDS’ SHOP</strong>
+        <br> <br>
+        <p>Myntra brings you a wide range of the latest kids’ dress collection as well as accessories, footwear and
+            more. Browse through our exhaustive collection to learn why we are a single-destination kids’ shop,
+            where you can find everything you need for your precious one.</p>
+        <ol>
+            <li>
+                Children’s clothing – We bring you the finest collection of children’s clothing online for all
+                occasions. Dress your children in smart printed T-shirts and tops, paired with jeans and trousers.
+                Our trendy, summery collections include shorts and skirts of all varieties. Opt for cute children’s
+                dresses from our kids’ store. You will find many party options from our kids’ dress collection
+                including sequined, shimmery and other embellished versions. Keep your babies warm and comfortable
+                in rompers and sleep wear. Your kids’ shopping should include some ethnic wear for festivals. Choose
+                from a fine range of lehenga-cholis, kurta-pyjamas, sherwanis and more. Stock up on sweaters,
+                jackets and sweatshirts for the winters. Track pants and tracksuits work well for training and
+                sports.
+            </li>
+            <br>
+            <li>Children’s footwear – Your kids’ online shopping is not complete without footwear. Check out
+                sneakers and sports shoes at Myntra for boys and girls which feature comfortable fits to keep them
+                active through the day. Your daughters can keep their feet comfortable in beautifully crafted
+                footwear such as Mary Janes, heels, wedges, ballerinas and woven flats. We also feature very
+                functional footwear for boys in our kids’ shopping range such as sandals, clogs, slip-on shoes and
+                tennis shoes. Buy colourful boots for rainy days and flip-flops for the next trip to the beach.</li>
+            <br>
+            <li>Children’s accessories – Your kid’s outfit is not complete without the addition of smart accessories
+                from our kids’ online store. School-going children would love our cool versions of school bags and
+                backpacks. Our colourful printed sunglasses and dial watches add to their cuteness factor. Your
+                little girls are surely going to love our collection of fancy hairbands and hair clips.</li>
+        </ol>
+        <p>Make sure you bring home fun, printed merchandise featuring your child’s favourite characters from DC
+            Comics and Marvel studios. They can now glide along with Spiderman, and pack a punch with Thor or the
+            <strong>Incredible</strong> Hulk. They can battle the dark forces with the Justice League, flying high with Superman,
+            geared up with Batman, and jumping around with Flash or Wonder Woman. You can check out a variety of
+            cool kids’ T-shirts jackets, joggers, footwear, bath towels, socks, action figures and play sets in this
+            category.
+
+        </p>
+        <br>
+        <strong>THE MOST CONVENIENT KID’S ONLINE STORE</strong>
+        <br> <br>
+        <p>Compared with other kids’ online shopping sites, Myntra is one of the most convenient places for purchasing everything that a kid needs. With simplified browsing, selection and payment procedures, you are bound to enjoy your kids’ online shopping experience. And we are not just a kids’ store. You can buy great quality merchandise for men and women as well from the comfort of your home.</p>
+    </div>
+</main>
+
+<script src="/javascripts/product.js"></script>
+<%- include('partials/footer')%>

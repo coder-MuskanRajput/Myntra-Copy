@@ -1,0 +1,132 @@
+.page1{
+    width: 100%;
+    background-color: #fff;
+}
+.kidsImages{
+    display: flex;
+    margin-top: 8%;
+    overflow: hidden;
+}
+.kidsImages a img{
+    width: 98.9vw;
+}
+.radios{
+    text-align: center;
+    margin-top: 2%;
+}
+.page2 , .page3 , .page4 , .page5 , .page6 , .page7 , .page8 , .page9{
+    width: 100%;
+    background-color: #fff;
+}
+.page2 h4 , .page3 h4 , .page4 h4 , .page5 h4 , .page6 h4 , .page7 h4 , .page8 h4 , .page9 h4{
+    font-size: 2vmax;
+    font-weight: 700;
+    letter-spacing: .3vmax;
+    padding-left: 10%;
+    padding-top: 5%;
+    padding-bottom: 2%;
+}
+.page2-img a img {
+   width: 10.7vmax;
+}
+.page3-img , .page4-img , .page5-img1 , .page5-img2 , .page6-img1 , .page6-img2, .page6-img3 , .page7-img , .page8-img , .page9-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.page3-img a img{
+    width: 8.6rem;
+}
+.page4-img a img , .page5-img1 a img , .page5-img2 a img , .page9-img a img{
+    width: 18.9rem;
+}
+.page6-img1 a img , .page6-img2 a img, .page6-img3 a img , .page7-img a img{
+    width: 48vmax;
+}
+.page8-img a img{
+    width: 15.8rem;
+}
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    /* background-color: red; */
+}
+footer .footPart1 ul , footer .footPart2 ul {
+    display: flex;
+    flex-direction: column;
+}
+footer .footPart1{
+    padding-top: 7%;
+}
+.footpart3 .app{
+    width: 150px;
+ }
+ .footpart3 .social img{
+    width: 20px;
+}
+.footpart3 .social .youtube{
+    width: 25px;
+}
+.footPart4 .footPArt4-1 , .footPart4 .footPArt4-2{
+    display: flex;
+    gap: 10px;
+    width: 58%;
+}
+.footPArt4-1 img , .footPArt4-2 img{
+    width: 50px;
+}
+.footPart4{
+    margin-top: -4%;
+}
+a{
+    color: #696B79;
+    font-size: 1.5vmin;
+    font-weight: 700;
+}
+.heading{
+    color: #282C3F;
+    font-size: 1.7vmin;
+    font-weight: 700;
+ }
+.popularSearch{
+    padding: 5% 10%;
+}
+.copyright{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 10% ;
+    padding-bottom: 3%;
+}
+.copyright p a{
+    font-size: 15px;
+    color: blue;
+}
+.optionHr {
+    /* margin: 25px 0; */
+    width: 90%;
+    position: relative;
+    left: 5%;
+}
+.aboutMyntra{
+    padding:3% 10%;
+    /* padding-top: 3%; */
+}
+.aboutMyntra .strong{
+    padding-bottom: 10%;
+}
+.aboutMyntra p{
+    color: #696B79;
+}
+.aboutMyntra ol{
+    padding: 2% 0 ;
+    padding-left: 5%;
+}
+.aboutMyntra ol li {
+    color: #696B79;
+}
+.aboutMyntra ol li strong{
+    color: black;
+}

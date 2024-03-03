@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="/stylesheets/categoryShow.css">
+<%- include('partials/header')%>
+<%- include('partials/nav')%>
+
+<!-- page html code start from here -->
+
+<main>
+    <% let isUser = [""]%>
+    <% if( user?.wishlists ){ isUser = user.wishlists  } %>
+    
+
+    <!-- top details div start -->
+
+
+    <div class="topDetailsDiv pad2w">
+        <div class="inCategoryViewDiv">
+            <a class="normalTXT" href="/">Home</a> / <a class="normalTXT" href="/<%= mainCate%>"><%= mainCate%></a> / <span class="normalTXT bold"><%= subCategory %></span>
+        </div>
+        <div class="productCountDiv">
+            <span class="normalTXT bold"><%= subCategory %></span> <span class="itemCountSpan"> - <%= productCount %> items</span>
+        </div>
+        <div class="filterAndCategoryAnd">
+            
+        </div>
+    </div>
+    <!-- top details div end -->
+
+    <div class="mainContentDiv">
+        <div class="mainContantLeftDiv">
+            <div class="mainContentLeftDivTop pad2w">
+                <span class="normalTXT bold">FILLTER</span>
+                <span class="clearAll red pointer">CLEAR ALL</span>
+            </div>
+            <div class="mainContentLeftDivBottom pad2w">
+                <div class="brandShowDiv">
+                    <span class="normalTXT bold">BRAND</span>
+                   <% let brandNames = [] %>
+                   <% productL.forEach((elem)=>{ %>
+                       <% if(!brandNames.includes(elem.brand)){ %>
+                           <% brandNames.push(elem.brand); %>
+                            <span class="normalTXT"><input type="checkbox" class="brandCheckBox" value="<%= elem.brand%>"> <%= elem.brand%></span>
+                     <%   }}) %>
+                </div>
+            </div>
+        </div>
+        <div class="mainContantRightDiv">
+            <div class="sizeSelectDiv">
+                <span class="sizeOptions normalTXT pointer">
+                    Size <i class="ri-arrow-drop-down-line szieITag"></i>
+                </span>
+                <div class="allSizeOptions">
+                   <% let allSize = [] %>
+                    <% productL.forEach(function(ps, ind){ %>
+                       <% ps.size.forEach((ss)=>{ %>
+                           <% if(!allSize.includes(ss)){ %>
+                               <% allSize.push(ss) %>
+                                <span class="sizeOP normalTXT smallTXT"><input type="checkbox" class="sizeCheckBox" name="size" value="<%= ss %>"> <%= ss %></span>
+                           <% }})}) %>
+                </div>
+            </div>
+            <div class="allCardDiv pad2w">
+                <div class="cardsHolder">
+                   <% productL.forEach(function(prdct){ %>
+                        <div class="card" size="<%= prdct.size %>" brand="<%= prdct.brand%>" price="<%= prdct.price %>">
+                            <a href="/product/<%= prdct._id%>">
+                                <div class="imageSlideDIv">
+                                    <% prdct.images.forEach(function(img, imgI){ %>
+                                         <% if(imgI === 0){ %>
+                                             <img src="<%= img %>" alt="<%= img %>" class="productImg" id="pdimg<%= imgI%>">
+                                       <%  } else{ %>
+                                             <img src="<%= img %>" alt="<%= img %>" class="productImg" id="pdimg<%= imgI %>">
+                                        <% } }) %>
+                                 </div>
+                            </a>
+                            
+                            <div class="cardDetailsHolder">
+                                <div onclick="handleLike('<%= `${prdct._id}` %>')" class="whishListDiv">
+                                    <%if(isUser.includes(prdct._id)){%>
+                                        <span><i id="<%= prdct._id %>" class="makeRed ri-heart-fill"> </i>WISHLIST </span>   
+                                    <%}else{%>
+                                        <span><i id="<%= prdct._id %>" class="ri-heart-fill"> </i>WISHLIST </span>   
+                                    <%}%>
+                                </div>
+                                <span class="cardBrandName bold"><%= prdct.brand %></span>
+                                <span class="normalTXT productTitle"><%= prdct.title %></span>
+                                <span class="cardPrice">Rs. <%= prdct.price%></span>
+                            </div>
+                        </div>
+                  <%  }) %>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- page html code end here -->
+
+<script src="/javascripts/categoryShow.js"></script>
+<%- include('partials/footer')%>

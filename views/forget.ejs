@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/stylesheets/forget.css">
+<%- include('partials/header')%>
+<%- include('partials/nav')%>
+
+
+
+<div class="form-container">
+<div class="row">
+  <h1>Forgot Password</h1>
+  <h6 class="information-text">Enter your registered email to reset your password.</h6>
+  <form action="/forget" method="post" class="form-group">
+    <input type="email" name="email" id="user_email">
+    <p><label for="username">Email</label></p>
+    <button>Send OTP</button>
+  </form>
+  <div class="footer">
+    <h5>New here? <a href="/signup">Sign Up.</a></h5>
+    <h5>Already have an account? <a href="/login">Sign In.</a></h5>
+  </div>
+</div>
+</div>
+
+
+<%- include('partials/footer')%>

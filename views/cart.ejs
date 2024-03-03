@@ -1,0 +1,186 @@
+<link rel="stylesheet" href="stylesheets/cart.css">
+<%- include('partials/header')%>
+
+    <nav>
+        <a href="/" class="logo"><img src="https://aartisto.com/wp-content/uploads/2020/11/myntra.png" alt=""
+                class="logo"></a>
+        <h4 class="h4">BAG----------ADDRESS----------PAYMENT</h4>
+        <div class="secure">
+            <img src="https://constant.myntassets.com/checkout/assets/img/sprite-secure.png" alt="">
+            <h4 class="h4">100% secure</h4>
+        </div>
+    </nav>
+
+    <% let isAdd = [""]%>
+    <% if( user?.addCart ){ isAdd = user.addCart  } %>
+    
+    <%if(isAdd?.length > 0){%>
+
+    <div class="card-category-4">
+            
+        <br/><br/>
+
+        <br/>
+        
+        <ul>
+        <% addCart.forEach((product)=>{ %>
+
+            <li>
+                <div class="sp-card-3">
+                          
+                      <div class="productTitle card-title"><%=product.title%></div>
+  
+                      <ul class="product-details">
+                          <li class="product-img">
+                              <img src="<%= product.images%>"/>                                
+                          </li>
+  
+                          <li class="product-description">
+                              <ul>
+                                  <li>
+                                      <b> ₹ <%= product.price%> </b>
+                                  </li>
+                             </ul>
+                          </li>
+                      </ul>
+  
+                      <ul class="footer-card">
+                          <li>
+                            <div onclick="allPaymentDetail('<%=product.price%>','<%= product._id %>')"  amount="<%= product.price%>" id="rzp-button1" class="buy-btn">
+                                <p  title="Buy Now">Place Order</p></div>
+                              <div class="cart-btn"><a href="/removeFromCart/<%= product._id%>" title="Add To Cart">Remove item</a></div>
+                          </li>
+  
+                          
+                      </ul>                       
+                      
+                  </div>
+              </li>
+  
+
+       <% }) %>
+            
+        </ul>
+
+    </div>
+
+    <%}else{%>
+
+    <div class="wishes">
+
+        <div id="card">
+            <div class="grid ">
+                <img class="img"src="data:image/jpeg;base64,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" />
+                <div class="mt-12">
+                    <h3 class="text-2xl font-bold">Hey , it feels so light !</h3>
+                    <p class="mt-4 text-xl text-gray-600">There is nothing in your bag . Let's add some items</p>
+                    <button class="button"> <a href="/">ADD ITEMS IN YOUR CART </a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%}%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+
+       let amount , payment  , orderDetails;
+
+       let allPaymentDetail = function(p , d){
+
+        $(document).ready(function () {
+            var settings = {
+                "url": "/create/orderId",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "data": JSON.stringify({
+                    "amount": p*100
+                })
+            };
+
+            //creates new orderId everytime
+            $.ajax(settings).done(function (response) {
+                var options = {
+                    "key": "rzp_test_MgxwSJZt4in3Oa", // Enter the Key ID generated from the Dashboard
+                    "amount": response.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                    "currency": "INR",
+                    "name": "Myntra",
+                    "description": "Test Transaction",
+                    "image": "https://aartisto.com/wp-content/uploads/2020/11/myntra.png",
+                    "order_id": response.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                    "handler": function (response) {
+                        // alert(response.razorpay_payment_id);
+                        // alert(response.razorpay_order_id);
+                        // alert(response.razorpay_signature);
+                        // alert("payment Successful")
+                        var settings = {
+                            "url": `/api/payment/verify/${d}`,
+                            "method": "POST",
+                            "timeout": 0,
+                            "headers": {
+                                "Content-Type": "application/json"
+                            },
+                            "data": JSON.stringify({ response }),
+                        }
+                        $.ajax(settings).done(function (response) {
+                            // window.location.href = "/success"
+                            // console.log(response)
+
+                            if (response == true){
+                                window.location.href="/success"
+                            }
+                            else{
+                                alert("Payment Failed")
+                            }
+                        })
+                    },
+                    "prefill": {
+                        "name": "@User",
+                        "email": "user@gmail.com",
+                        "contact": "0000000000"
+                    },
+                    "notes": {
+                        "address": "Razorpay Corporate Office"
+                    },
+                    "theme": {
+                        "color": "#F13AB1"
+                    }
+                };
+                var rzp1 = new Razorpay(options);
+                rzp1.on('payment.failed', function (response) {
+                    alert(response.error.code);
+                    alert(response.error.description);
+                    alert(response.error.source);
+                    alert(response.error.step);
+                    alert(response.error.reason);
+                    alert(response.error.metadata.order_id);
+                    alert(response.error.metadata.payment_id);
+                });
+                // document.getElementById('rzp-button1').onclick = function (e) {
+                //     console.log(e);
+                //     // amount = e.getAttribute("amount")
+                //     // console.log(amount);
+                //     e.preventDefault();
+                //     // rzp1.open();
+                // }
+
+                
+                payment =  function() {
+                        rzp1.open();
+                }
+            });
+        });
+
+        setTimeout(() => {
+           payment()
+            
+        }, 1000);
+    }
+
+    </script>
+<script src="/javascripts/cart.js"></script>
+
+    <%- include('partials/footer')%>

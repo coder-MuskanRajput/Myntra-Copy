@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="/stylesheets/login.css">
+
+<%- include('partials/header')%>
+
+<%- include('partials/nav')%>
+
+   <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- jQuery Ripples JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+<!-----mytra login page---->
+
+<div class="mytra-login">
+  <form action="/signup" method="post">
+    <img src="https://1000logos.net/wp-content/uploads/2022/08/Myntra-Logo.png">
+    
+    <h1 class="heading">
+      Welcome to India's Largest Online Fashion Store
+    </h1>
+
+    <p>Please signup for the account</p>
+
+    <label>Username</label>
+    <input type="text" name="username" required="true">
+
+    <label>Email ID</label>
+    <input type="email" name="email" required="true">
+    
+    <label>Password</label>
+    <input type="password" name="password" required="true">
+    
+
+    <!-- <button class="login">Login</button> -->
+    <button class="signup">Signup</button>
+
+    <div class="forgot">
+        <label>Already have an account ?</label>
+        
+        <a href="/login">Login</a>
+      </div>
+    
+  </form>
+  
+  <div class="poster">
+  </div>
+</div>
+<!---mytra-login---->
+<script src="/javascripts/login.js"></script>
+
+<%- include('partials/footer')%>

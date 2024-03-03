@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="/stylesheets/nav.css">
+
+<nav>
+    <a href="/" class="logo"><img src="https://aartisto.com/wp-content/uploads/2020/11/myntra.png" alt="" class="logo"></a>
+    <ul class="navUl" id="fisrtUl">
+        <a class="navATag navATag1" check="navATag1" href="/men">MEN </a>
+        <a class="navATag navATag2" check="navATag2" href="/women">WOMEN</a>
+        <a class="navATag navATag3" check="navATag3" href="/kids">KIDS</a>
+        <a class="navATag navATag4" check="navATag4" href="/home&living">HOME & LIVING</a>
+        <a class="navATag navATag5" check="navATag5" href="/beauty">BEAUTY</a>
+        <a class="navATag navATag6" check="navATag6" href="#">STUDIO <div class="studioOptionDiv">
+            <img src="https://constant.myntassets.com/web/assets/img/studio-logo-new.svg" alt="" class="studioLogo">
+            <p class="normalTXT">Your daily inspiration for everything fashion</p>
+            <img src="https://constant.myntassets.com/web/assets/img/sudio-nav-banner.png" alt="" class="studioBrandImg">
+            <button class="studioExplore">Explore Studio <i class="ri-arrow-drop-right-line"></i></button>
+        </div></a>
+        <div class="optionDIv"></div>
+    </ul>
+    <form action="" class="searchForm">
+        <i class="ri-search-line"></i><input type="text" class="searchInput" placeholder="Search for products, brands and more">
+        <div class="show-search-result">
+            <ul id="search-result-ul">
+                
+            </ul>
+        </div>
+    </form>
+    <ul class="navUl">
+        <span id="profile" class="profileSpan"><i class="ri-user-3-line "></i><span>Profile</span>
+
+       <% if(user){ %>
+       <div class="profileData">
+        <h5>Hello <%= user.username%></h5>
+        <hr>
+        <ul class="profileUl1">
+            <a href="/cart">Order</a>
+            <a href="/wishlist">Wishlist</a>
+            <a href="">Gift Cards</a>
+            <a href="">Contact US</a>
+            <a href="">Myntra Insider</a>
+        </ul>
+        <hr>
+        <ul class="profileUl2">
+            <a href="">Myntra Credit</a>
+            <a href="">Coupons</a>
+            <a href="">Saved Cards</a>
+            <a href="">Saved VPA</a>
+            <a href="">Saved Address</a>
+        </ul>
+        <hr>
+<br>
+         <a href="/signout">Logout</a>
+
+    </div>
+      <% } else{ %>
+        <div class="profileData">
+            <h5>Welcome</h5>
+            <p>To access account and manage orders</p>
+            <a href="/login"><button>Login/Signup</button></a>
+            <hr>
+            <ul class="profileUl1">
+                <a href="">Order</a>
+                <a href="">Wishlist</a>
+                <a href="">Gift Cards</a>
+                <a href="">Contact US</a>
+                <a href="">Myntra Insider</a>
+            </ul>
+            <hr>
+            <ul class="profileUl2">
+                <a href="">Myntra Credit</a>
+                <a href="">Coupons</a>
+                <a href="">Saved Cards</a>
+                <a href="">Saved VPA</a>
+                <a href="">Saved Address</a>
+            </ul>
+        </div>
+    <%}%>
+    </span>
+        <a href="/wishlist"><span class="profileSpan"><i class="ri-heart-line"></i><span>Wishlist</span></span></a>
+        <a href="/cart"><span class="profileSpan"><i class="ri-shopping-bag-line"></i><span>Bag</span></span></a>
+    </ul>  
+</nav>
+<!-- <script src="javascripts/nav.js"></script> -->
+
+<script src="/javascripts/nav.js"></script>

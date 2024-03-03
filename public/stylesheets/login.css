@@ -1,0 +1,153 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    transition:all .3s;
+    user-select:none;
+  }
+  
+  
+  body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    font-family: 'Open Sans', sans-serif;
+    background:#29303E;
+  }
+  
+  
+  .mytra-login{
+    width:800px;
+    height:480px;
+    display:flex;
+  
+  }
+  
+  .mytra-login form{
+    background:#fff;
+    width:50%;
+    padding:25px 50px;
+  }
+  
+  .mytra-login .poster{
+    width:50%;
+    background:url('https://img.freepik.com/premium-photo/excited-crazy-amazed-girlish-lady-open-mouth-wow-reaction_274222-27283.jpg');
+    background-size:cover;
+    background-position:33%;
+  }
+  
+  
+  .mytra-login form img{
+    width:80px;
+  }
+  
+  .mytra-login form .heading{
+    font-size:1.4em;
+    margin-top:15px;
+  }
+  
+  .mytra-login form p{
+    font-size:.95em;
+    color:#444;
+    margin-bottom:40px;
+  }
+  
+  .mytra-login form label{
+    display:block;
+    margin-top:20px;
+    color:#444;
+  }
+  
+  .mytra-login form input{
+    border:none;
+    outline:none;
+    border-bottom:1px solid #000;
+    width:100%;
+    padding:10px 0px;
+  }
+  
+  
+  
+  .mytra-login form .forgot{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:20px;
+    color:#444;
+    font-size:.85em;
+  }
+  
+  .mytra-login form .forgot label{
+    margin-top:0;
+    font-size:1em;
+  }
+  
+  .mytra-login form .forgot input{
+    width:auto;
+  }
+  
+  
+  .mytra-login form .forgot a{
+    color:#E72744;
+    cursor:pointer;
+  }
+  
+  
+  .mytra-login form button{
+    border:none;
+    outline:none;
+    margin-top:40px;
+    padding:12px 0px;
+    border-radius:5px;
+    cursor:pointer;
+  }
+  
+  .mytra-login form .login{
+    width:60%;
+    color:#fff;
+    background:#E72744;
+  }
+  
+  .mytra-login form .login:hover{
+    background:#fff;
+    color:#E72744;
+    box-shadow:0 0 10px #ccc;
+  }
+  
+  .mytra-login form .signup{
+    width:38.5%;
+    color:#E72744;
+    background:#fff;
+    box-shadow:0 0 10px #ccc;
+  }
+  
+  .mytra-login form .signup:hover{
+    background:#e72744;
+    color:#fff;
+  }
+  
+  
+  @media (min-width: 0px) and (max-width: 800px){
+    
+    
+    .mytra-login{
+    display:block;
+    width:350px;
+    height:auto;
+    }
+    
+    .mytra-login form{
+      width:100%;
+      padding:40px 40px;
+    }
+    
+    .mytra-login .poster{
+      display:none;
+    }
+    
+    .mytra-login form .signup{
+    width:38%;
+    }
+    
+  }

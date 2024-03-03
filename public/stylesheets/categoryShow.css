@@ -1,0 +1,183 @@
+main{
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid transparent;
+    padding-top: 15vh;
+}
+
+.normalTXT{
+    font-size: 14px;
+    color: #303030;
+    font-weight: 00;
+}
+.pointer{
+    cursor: pointer;
+}
+.pad2w{
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+.bold{
+    font-weight: 700;
+    color: black;
+}
+.itemCountSpan{
+    font-size: 16px;
+    color: #505050;
+}
+.topDetailsDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 1vmax;
+}
+/* mainContantLeftDiv start from here */
+.mainContantLeftDiv{
+width: 250px;
+/* background-color: #aec; */
+}
+.mainContentDiv{
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+}
+.mainContentLeftDivTop{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 3px;
+    
+}
+.clearAll{
+    color: #ff3f6c;
+    font-size: 10px;
+    font-weight: 800;
+    display: none;
+}
+.mainContentLeftDivBottom{
+    width: 100%;
+    border-top: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+
+
+/* mainContentLeftDivBottom start from heres */
+.mainContantRightDiv{
+    width: calc(100% - 250px);
+    height: 100vh;
+    /* background-color: #505050; */
+}
+.allCardDiv{
+    width: 100%;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    /* border-left: 1px solid #ddd; */
+
+}
+
+.card{
+    width: 220px;
+    flex-wrap: wrap;
+    margin-bottom: 2vw;
+    position: relative;
+    cursor: pointer;
+    display: initial;
+}
+.productImg{
+    width: 0;
+}
+#pdimg0{
+    width: 100%;
+    /* filter: invert(0.05); */
+    transition: all linear 0.2s;
+}
+
+.cardDetailsHolder{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding:  5px;
+    position: relative;
+}
+.cardPrice{
+    font-size: 13px;
+    font-weight: 700;
+}
+.cardsHolder{
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 20px;
+    white-space: nowrap;
+    flex-wrap: wrap;
+}
+
+.productTitle{
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.card:hover{
+    -webkit-box-shadow: 3px 3px 10px 3px #dddddd;
+-moz-box-shadow: 3px 3px 10px 3px #dddddd;
+box-shadow: 3px 3px 10px 3px #dddddd;
+}
+
+.whishListDiv{
+    width: 100%;
+    height: 70%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -10%;
+    left: 0;
+    background-color: white;
+    padding: 10px;
+}
+.whishListDiv > i{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card:hover  .whishListDiv{
+    display: flex;
+}
+
+
+.sizeSelectDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    padding-left: 10px;
+}
+.allSizeOptions{
+    padding: 5px;
+    width: 100%;
+    display: none;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.sizeOP{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.brandShowDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+}
+.makeRed{
+    color: red;
+}
